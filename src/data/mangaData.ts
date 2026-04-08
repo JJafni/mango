@@ -1,3 +1,16 @@
+import dbsCover1 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5mpq4gsyu2zd1.webp'
+import dbsCover2 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-ctmfnvuxu2zd1.webp'
+import dbsCover3 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-lfce1wgzu2zd1.webp'
+import dbsCover4 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-d3hqlwdwu2zd1.webp'
+import dbsCover5 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-vbj64m1yu2zd1.webp'
+import dbsCover6 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-r7770gdyu2zd1.webp'
+import dbsCover7 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-jxsb4ga0v2zd1.webp'
+import dbsCover8 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-asxuci2xu2zd1.webp'
+import dbsCover9 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-qq4gc7ozu2zd1.webp'
+import dbsCover10 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-qkd9v34wu2zd1.webp'
+import dbsCover11 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5vfbjkzyu2zd1.webp'
+import dbsCover12 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5tvaztkyu2zd1.webp'
+
 export type GridItem = {
   title: string
   description: string
@@ -8,74 +21,62 @@ export const dragonBallSuperItems: GridItem[] = [
   {
     title: 'Volume 1',
     description: 'The Dragon Ball Super manga begins.',
-    coverUrl:
-      'https://books.google.com/books/content?id=6g3zvQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover1,
   },
   {
     title: 'Volume 2',
     description: 'New arcs and stronger rivals emerge.',
-    coverUrl:
-      'https://books.google.com/books/content?id=MdrOAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover2,
   },
   {
     title: 'Volume 3',
     description: 'The battles escalate across universes.',
-    coverUrl:
-      'https://books.google.com/books/content?id=EINZDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover3,
   },
   {
     title: 'Volume 4',
     description: 'Alliances and stakes keep rising.',
-    coverUrl:
-      'https://books.google.com/books/content?id=5YnazgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover4,
   },
   {
     title: 'Volume 5',
     description: 'A new threat challenges the heroes.',
-    coverUrl:
-      'https://books.google.com/books/content?id=eUIOzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover5,
   },
   {
     title: 'Volume 6',
     description: 'Major turning points and epic clashes.',
-    coverUrl:
-      'https://books.google.com/books/content?id=9YMOzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover6,
   },
   {
     title: 'Volume 7',
     description: 'Warriors train for impossible battles.',
-    coverUrl:
-      'https://books.google.com/books/content?id=akbFwQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover7,
   },
   {
     title: 'Volume 8',
     description: 'Hidden strengths start to awaken.',
-    coverUrl:
-      'https://books.google.com/books/content?id=SbAZzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover8,
   },
   {
     title: 'Volume 9',
     description: 'Enemies push each universe to the edge.',
-    coverUrl:
-      'https://books.google.com/books/content?id=iiMPvgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover9,
   },
   {
     title: 'Volume 10',
     description: 'The tournament aftermath changes everything.',
-    coverUrl:
-      'https://books.google.com/books/content?id=C1L4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover10,
   },
   {
     title: 'Volume 11',
     description: 'A dangerous legacy returns from the past.',
-    coverUrl:
-      'https://books.google.com/books/content?id=S7QlzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover11,
   },
   {
     title: 'Volume 12',
     description: 'New techniques reshape every fight.',
-    coverUrl:
-      'https://books.google.com/books/content?id=qCApzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+    coverUrl: dbsCover12,
   },
 ]
 

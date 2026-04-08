@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { GridItem } from '../data/mangaData'
 
 type GridPlatformProps = {
@@ -15,6 +15,7 @@ const GridPlatform = ({
   items,
 }: GridPlatformProps) => {
   const [currentPage, setCurrentPage] = useState(1)
+  const gridRef = useRef<HTMLDivElement | null>(null)
   const itemsPerPage = 4
   const totalPages = Math.ceil(items.length / itemsPerPage)
 
@@ -33,6 +34,37 @@ const GridPlatform = ({
     return normalizedItems.slice(startIndex, startIndex + itemsPerPage)
   }, [currentPage, normalizedItems])
 
+  useEffect(() => {
+    if (!gridRef.current) return
+
+    const cards = Array.from(
+      gridRef.current.querySelectorAll<HTMLElement>('[data-reveal-card]')
+    )
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px',
+      }
+    )
+
+    cards.forEach((card, index) => {
+      card.classList.remove('is-visible')
+      card.style.transitionDelay = `${index * 90}ms`
+      observer.observe(card)
+    })
+
+    return () => observer.disconnect()
+  }, [currentPage])
+
   return (
     <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24 pt-16">
       <div className="mb-8">
@@ -44,11 +76,15 @@ const GridPlatform = ({
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div
+        ref={gridRef}
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {pagedItems.map((item, index) => (
           <article
             key={item.title}
-            className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-zinc-900/80 shadow-xl transition-transform duration-200 hover:-translate-y-1"
+            data-reveal-card
+            className="reveal-card flex h-full flex-col overflow-hidden border border-white/15 bg-zinc-900/80 shadow-xl"
           >
             <img
               src={item.coverUrl}

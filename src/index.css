@@ -128,3 +128,22 @@
     @apply font-sans;
     }
 }
+
+/* Keep app in dark mode for this project UI */
+body {
+  background: #09090b;
+  color: #ffffff;
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
