@@ -1,11 +1,17 @@
 import landingBgImg from './assets/dragon-ball-super-3840x2160-25208.png'
-import { HeroBackground, LandingHero } from './components'
+import { GridPlatform, HeroBackground, LandingHero } from './components'
 
 const App = () => {
   return (
-    <main className="relative min-h-screen overflow-hidden text-white">
-      <HeroBackground imageSrc={landingBgImg} />
-      <LandingHero />
+    <main className="text-white">
+      <section className="relative min-h-screen overflow-hidden">
+        <HeroBackground imageSrc={landingBgImg} />
+        <LandingHero />
+      </section>
+
+      <section className="relative bg-zinc-950">
+        <GridPlatform />
+      </section>
     </main>
   )
 }
