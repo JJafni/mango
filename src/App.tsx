@@ -1,3 +1,9 @@
+import Header from './components/Header'
+
+const App = () => {
+  return (
+    <main className="min-h-screen bg-zinc-950 text-zinc-100">
+      <Header />
 import landingBgImg from './assets/dragon-ball-super-3840x2160-25208.png'
 import { GridPlatform, HeroBackground, LandingHero } from './components'
 import { dragonBallSuperItems, dragonBallZItems } from './data/mangaData'
