@@ -138,9 +138,7 @@ body {
 .reveal-card {
   opacity: 0;
   transform: translateY(24px) scale(0.98);
-  transition:
-    opacity 700ms ease,
-    transform 700ms ease;
+  transition: opacity 220ms linear;
 }
 
 .reveal-card.is-visible {

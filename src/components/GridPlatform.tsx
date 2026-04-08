@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { motion } from 'motion/react'
 import type { GridItem } from '../data/mangaData'
 
 type GridPlatformProps = {
@@ -81,12 +82,16 @@ const GridPlatform = ({
         className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {pagedItems.map((item, index) => (
-          <article
+          <motion.article
             key={item.title}
             data-reveal-card
-            className="reveal-card flex h-full flex-col overflow-hidden border border-white/15 bg-zinc-900/80 shadow-xl"
+            whileHover={{
+              y: -10,
+              transition: { duration: 0.18, ease: 'easeOut' },
+            }}
+            className="reveal-card group flex h-full flex-col overflow-hidden border border-white/15 bg-zinc-900/80 shadow-xl hover:border-violet-300/40"
           >
-            <img
+            <motion.img
               src={item.coverUrl}
               alt={`${seriesLabel} ${item.title} cover`}
               className="aspect-[2/3] w-full object-cover"
@@ -105,7 +110,7 @@ const GridPlatform = ({
                 Cover slot #{(currentPage - 1) * itemsPerPage + index + 1}
               </p>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
 

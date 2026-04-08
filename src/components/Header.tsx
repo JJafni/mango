@@ -1,3 +1,5 @@
+import { GooeyInput } from '@/components/ui/gooey-input'
+
 const Header = () => {
   return (
     <header className="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur">
@@ -6,17 +8,16 @@ const Header = () => {
           Dragon Radar
         </h1>
 
-        <form className="w-full sm:w-96" role="search">
-          <label htmlFor="dragon-search" className="sr-only">
-            Search
-          </label>
-          <input
-            id="dragon-search"
-            type="search"
-            placeholder="Search dragons..."
-            className="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-100 outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+        <div className="w-full sm:w-96">
+          <GooeyInput
+            placeholder="Search manga..."
+            classNames={{
+              trigger: 'bg-zinc-200 text-zinc-900',
+              input: 'text-zinc-900 placeholder:text-zinc-600',
+              bubbleSurface: 'bg-zinc-200 text-zinc-900',
+            }}
           />
-        </form>
+        </div>
       </div>
     </header>
   )
