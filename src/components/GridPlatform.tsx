@@ -87,7 +87,7 @@ const GridPlatform = ({
             data-reveal-card
             whileHover={{
               y: -10,
-              transition: { duration: 0.18, ease: 'easeOut' },
+              transition: { duration: 0.08, ease: 'easeOut' },
             }}
             className="reveal-card group flex h-full flex-col overflow-hidden border border-white/15 bg-zinc-900/80 shadow-xl hover:border-violet-300/40"
           >
