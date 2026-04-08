@@ -1,13 +1,14 @@
 import landingBgImg from './assets/dragon-ball-super-3840x2160-25208.png'
+import secondBgImg from './assets/landing-bg.png'
 import Header from './components/Header'
-import { GridPlatform, HeroBackground, LandingHero } from './components'
+import { BackgroundSlideshow, GridPlatform, LandingHero } from './components'
 import { dragonBallSuperItems, dragonBallZItems } from './data/mangaData'
 
 const App = () => {
   return (
     <main className="text-white">
       <section className="relative min-h-screen overflow-hidden">
-        <HeroBackground imageSrc={landingBgImg} />
+        <BackgroundSlideshow images={[landingBgImg, secondBgImg]} intervalMs={5000} />
         <div className="relative z-20">
           <Header />
         </div>
