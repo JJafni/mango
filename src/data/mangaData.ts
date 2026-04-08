@@ -1,23 +1,23 @@
-import dbsCover1 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5mpq4gsyu2zd1.webp'
-import dbsCover2 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-ctmfnvuxu2zd1.webp'
-import dbsCover3 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-lfce1wgzu2zd1.webp'
-import dbsCover4 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-d3hqlwdwu2zd1.webp'
-import dbsCover5 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-vbj64m1yu2zd1.webp'
-import dbsCover6 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-r7770gdyu2zd1.webp'
-import dbsCover7 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-jxsb4ga0v2zd1.webp'
-import dbsCover8 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-asxuci2xu2zd1.webp'
-import dbsCover9 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-qq4gc7ozu2zd1.webp'
-import dbsCover10 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-qkd9v34wu2zd1.webp'
-import dbsCover11 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5vfbjkzyu2zd1.webp'
-import dbsCover12 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-5tvaztkyu2zd1.webp'
-import dbsCover13 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-mrc4quwzu2zd1.webp'
-import dbsCover14 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-soggr67yu2zd1.webp'
-import dbsCover15 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-7rm8sjixu2zd1.webp'
-import dbsCover16 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-f6vg1i8xu2zd1.webp'
-import dbsCover17 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-18z43630v2zd1.webp'
-import dbsCover18 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-7mi339lwu2zd1.webp'
-import dbsCover19 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-c4z2shrwu2zd1.webp'
-import dbsCover20 from '../assets/volume/dbsuper/dragon-ball-super-volume-covers-1-23-v0-q439wurvu2zd1.webp'
+import dbsCover1 from '../assets/volume/dbsuper/1.webp'
+import dbsCover2 from '../assets/volume/dbsuper/2.webp'
+import dbsCover3 from '../assets/volume/dbsuper/3.webp'
+import dbsCover4 from '../assets/volume/dbsuper/4.webp'
+import dbsCover5 from '../assets/volume/dbsuper/5.webp'
+import dbsCover6 from '../assets/volume/dbsuper/6.webp'
+import dbsCover7 from '../assets/volume/dbsuper/7.webp'
+import dbsCover8 from '../assets/volume/dbsuper/8.webp'
+import dbsCover9 from '../assets/volume/dbsuper/9.webp'
+import dbsCover10 from '../assets/volume/dbsuper/10.webp'
+import dbsCover11 from '../assets/volume/dbsuper/11.webp'
+import dbsCover12 from '../assets/volume/dbsuper/12.webp'
+import dbsCover13 from '../assets/volume/dbsuper/13.webp'
+import dbsCover14 from '../assets/volume/dbsuper/14.webp'
+import dbsCover15 from '../assets/volume/dbsuper/15.webp'
+import dbsCover16 from '../assets/volume/dbsuper/16.webp'
+import dbsCover17 from '../assets/volume/dbsuper/17.webp'
+import dbsCover18 from '../assets/volume/dbsuper/18.webp'
+import dbsCover19 from '../assets/volume/dbsuper/19.webp'
+import dbsCover20 from '../assets/volume/dbsuper/20.webp'
 
 export type GridItem = {
   title: string
@@ -27,7 +27,7 @@ export type GridItem = {
 
 export const dragonBallSuperItems: GridItem[] = [
   {
-    title: 'Vol. 1 - The Gods of Destruction Beerus',
+    title: 'Vol. 1 - Warriors from Universe 6!',
     description: 'The Dragon Ball Super manga begins.',
     coverUrl: dbsCover1,
   },
@@ -42,22 +42,22 @@ export const dragonBallSuperItems: GridItem[] = [
     coverUrl: dbsCover3,
   },
   {
-    title: 'Vol. 4 - Last Hope for Earth',
+    title: 'Vol. 4 - Last Chance For Hope',
     description: 'Alliances and stakes keep rising.',
     coverUrl: dbsCover4,
   },
   {
-    title: 'Vol. 5 - The Decisive Kamehameha',
+    title: 'Vol. 5 - The Decisive Battle! Farewell, Trunks!',
     description: 'A new threat challenges the heroes.',
     coverUrl: dbsCover5,
   },
   {
-    title: 'Vol. 6 - The Explosive Birth of Son Goku',
-    description: 'Major turning points and epic clashes.',
+    title: 'Vol. 6 - The Super Warriors Gather!',
+    description: 'The Zen Exhibition Match continues and all ',
     coverUrl: dbsCover6,
   },
   {
-    title: 'Vol. 7 - Universe Survival! The Tournament Begins!!',
+    title: 'Vol. 7 - Universe Survival! The Tournament of Power Begins!!',
     description: 'Warriors train for impossible battles.',
     coverUrl: dbsCover7,
   },
@@ -67,7 +67,7 @@ export const dragonBallSuperItems: GridItem[] = [
     coverUrl: dbsCover8,
   },
   {
-    title: 'Vol. 9 - Moro, Eater of Worlds',
+    title: 'Vol. 9 - Battle\'s End and Aftermath',
     description: 'Enemies push each universe to the edge.',
     coverUrl: dbsCover9,
   },
@@ -97,17 +97,17 @@ export const dragonBallSuperItems: GridItem[] = [
     coverUrl: dbsCover14,
   },
   {
-    title: 'Vol. 15 - Moro\'s Magic',
+    title: 'Vol. 15 - Moro, Consumer of Worlds',
     description: 'The showdown intensifies with new powers and strategies.',
     coverUrl: dbsCover15,
   },
   {
-    title: 'Vol. 16 - Son Goku, Earth\'s Defender',
+    title: 'Vol. 16 - The Universe\'s Greatest Warrior',
     description: 'The battle for Earth reaches a turning point.',
     coverUrl: dbsCover16,
   },
   {
-    title: 'Vol. 17 - The Universe\'s Greatest Warrior',
+    title: 'Vol. 17 - God of Destruction Power',
     description: 'A new arc begins with stronger enemies and new stakes.',
     coverUrl: dbsCover17,
   },
@@ -117,17 +117,17 @@ export const dragonBallSuperItems: GridItem[] = [
     coverUrl: dbsCover18,
   },
   {
-    title: 'Vol. 19 - Trunks & Goten',
+    title: "Vol. 19 - A People's Pride",
     description: 'New adventures start while danger grows in the shadows.',
     coverUrl: dbsCover19,
   },
   {
-    title: 'Vol. 20 - First-Class Warrior',
+    title: 'Vol. 20 - All-Out Bout',
     description: 'Super Hero storyline momentum builds toward major conflict.',
     coverUrl: dbsCover20,
   },
   {
-    title: 'Vol. 21 - Super Awakening',
+    title: 'Vol. 21 - VS. Dr. Hedo',
     description: 'The Super Hero arc reaches explosive moments.',
     coverUrl:
       'https://books.google.com/books/content?id=FovdEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
@@ -139,7 +139,7 @@ export const dragonBallSuperItems: GridItem[] = [
       'https://books.google.com/books/content?id=CVmd0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
   },
   {
-    title: 'Vol. 23 - A Legacy Toward the Future',
+    title: 'Vol. 23 - Son Gohan\'s Ultimate Awakening!',
     description: 'The latest volume pushes the story into its next phase.',
     coverUrl:
       'https://books.google.com/books/content?id=qlaTEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
