@@ -1,9 +1,5 @@
 import { useMemo, useState } from 'react'
-
-type GridItem = {
-  title: string
-  description: string
-}
+import type { GridItem } from '../data/mangaData'
 
 type GridPlatformProps = {
   title: string
@@ -11,36 +7,6 @@ type GridPlatformProps = {
   seriesLabel: string
   items: GridItem[]
 }
-
-export const dragonBallSuperItems: GridItem[] = [
-  { title: 'Volume 1', description: 'The Dragon Ball Super manga begins.' },
-  { title: 'Volume 2', description: 'New arcs and stronger rivals emerge.' },
-  { title: 'Volume 3', description: 'The battles escalate across universes.' },
-  { title: 'Volume 4', description: 'Alliances and stakes keep rising.' },
-  { title: 'Volume 5', description: 'A new threat challenges the heroes.' },
-  { title: 'Volume 6', description: 'Major turning points and epic clashes.' },
-  { title: 'Volume 7', description: 'Warriors train for impossible battles.' },
-  { title: 'Volume 8', description: 'Hidden strengths start to awaken.' },
-  { title: 'Volume 9', description: 'Enemies push each universe to the edge.' },
-  { title: 'Volume 10', description: 'The tournament aftermath changes everything.' },
-  { title: 'Volume 11', description: 'A dangerous legacy returns from the past.' },
-  { title: 'Volume 12', description: 'New techniques reshape every fight.' },
-]
-
-export const dragonBallZItems: GridItem[] = [
-  { title: 'Volume 1', description: 'Raditz arrives and the Saiyan saga begins.' },
-  { title: 'Volume 2', description: 'Training continues before the invasion.' },
-  { title: 'Volume 3', description: 'Goku and friends face Nappa and Vegeta.' },
-  { title: 'Volume 4', description: 'The heroes head to Planet Namek.' },
-  { title: 'Volume 5', description: 'The Ginyu Force enters the battlefield.' },
-  { title: 'Volume 6', description: 'Frieza reveals terrifying new forms.' },
-  { title: 'Volume 7', description: 'A Super Saiyan is born.' },
-  { title: 'Volume 8', description: 'Future Trunks changes the timeline.' },
-  { title: 'Volume 9', description: 'Androids awaken and chaos spreads.' },
-  { title: 'Volume 10', description: 'Cell Games push everyone to the limit.' },
-  { title: 'Volume 11', description: 'The Great Saiyaman arc begins.' },
-  { title: 'Volume 12', description: 'Majin Buu threatens the universe.' },
-]
 
 const GridPlatform = ({
   title,
@@ -52,10 +18,20 @@ const GridPlatform = ({
   const itemsPerPage = 4
   const totalPages = Math.ceil(items.length / itemsPerPage)
 
+  const normalizedItems = useMemo(() => {
+    return items.map((item) => {
+      if (item.coverUrl) return item
+      const fallbackCover = `https://placehold.co/400x600/27272a/a1a1aa?text=${encodeURIComponent(
+        item.title
+      )}`
+      return { ...item, coverUrl: fallbackCover }
+    })
+  }, [items])
+
   const pagedItems = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
-    return items.slice(startIndex, startIndex + itemsPerPage)
-  }, [currentPage, items])
+    return normalizedItems.slice(startIndex, startIndex + itemsPerPage)
+  }, [currentPage, normalizedItems])
 
   return (
     <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24 pt-16">
@@ -74,7 +50,13 @@ const GridPlatform = ({
             key={item.title}
             className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-zinc-900/80 shadow-xl transition-transform duration-200 hover:-translate-y-1"
           >
-            <div className="aspect-[2/3] w-full bg-gradient-to-b from-zinc-700 to-zinc-900" />
+            <img
+              src={item.coverUrl}
+              alt={`${seriesLabel} ${item.title} cover`}
+              className="aspect-[2/3] w-full object-cover"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
             <div className="flex min-h-36 flex-1 flex-col p-4">
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
                 {seriesLabel}

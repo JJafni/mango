@@ -1,11 +1,6 @@
 import landingBgImg from './assets/dragon-ball-super-3840x2160-25208.png'
-import {
-  dragonBallSuperItems,
-  dragonBallZItems,
-  GridPlatform,
-  HeroBackground,
-  LandingHero,
-} from './components'
+import { GridPlatform, HeroBackground, LandingHero } from './components'
+import { dragonBallSuperItems, dragonBallZItems } from './data/mangaData'
 
 const App = () => {
   return (
