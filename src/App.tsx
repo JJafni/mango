@@ -1,10 +1,5 @@
-import Header from './components/Header'
-
-const App = () => {
-  return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100">
-      <Header />
 import landingBgImg from './assets/dragon-ball-super-3840x2160-25208.png'
+import Header from './components/Header'
 import { GridPlatform, HeroBackground, LandingHero } from './components'
 import { dragonBallSuperItems, dragonBallZItems } from './data/mangaData'
 
@@ -13,6 +8,9 @@ const App = () => {
     <main className="text-white">
       <section className="relative min-h-screen overflow-hidden">
         <HeroBackground imageSrc={landingBgImg} />
+        <div className="relative z-20">
+          <Header />
+        </div>
         <LandingHero />
       </section>
 
