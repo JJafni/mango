@@ -135,6 +135,18 @@ body {
   color: #ffffff;
 }
 
+/* Hide scrollbars but keep scroll behavior */
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .reveal-card {
   opacity: 0;
   transform: translateY(24px) scale(0.98);
