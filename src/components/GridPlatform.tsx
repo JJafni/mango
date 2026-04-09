@@ -109,7 +109,7 @@ const GridPlatform = ({
     seriesLabel === "Dragon Ball Super" ? "dbs" : "dbz";
 
   return (
-    <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24 pt-16">
+    <section className="relative mx-auto w-full max-w-6xl px-6 pb-24 pt-16">
       <div className="mb-8">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {title}
@@ -181,7 +181,7 @@ const GridPlatform = ({
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="rounded-lg border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:opacity-40"
+          className="rounded-lg cursor-pointer border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:opacity-40"
         >
           Prev
         </button>
@@ -190,7 +190,7 @@ const GridPlatform = ({
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className={`rounded-lg border px-3 py-2 text-sm ${
+            className={`rounded-lg cursor-pointer border px-3 py-2 text-sm ${
               currentPage === page
                 ? "border-violet-400 bg-violet-500 text-white"
                 : "border-white/20 bg-zinc-900 text-zinc-200"
@@ -205,7 +205,7 @@ const GridPlatform = ({
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="rounded-lg border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:opacity-40"
+          className="rounded-lg cursor-pointer border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:opacity-40"
         >
           Next
         </button>
@@ -213,56 +213,55 @@ const GridPlatform = ({
 
       {/* MODAL */}
       <AnimatePresence>
-        {activeItem && (
-          <>
-            <motion.button
-              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveItem(null)}
-            />
+  {activeItem && (
+    <>
+      {/* Backdrop */}
+      <motion.button
+        className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setActiveItem(null)}
+      />
 
-            <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 24, scale: 0.98 }}
-              className="fixed left-1/2 top-1/2 z-50 w-[min(94vw,920px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-white/20 bg-zinc-900 shadow-2xl"
+      {/* Modal content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.98 }}
+        transition={{ duration: 0.2 }}
+        className="fixed left-1/2 top-1/2 z-50 w-[min(94vw,920px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-white/20 bg-zinc-900 shadow-2xl"
+      >
+        <div className="grid md:grid-cols-[300px_1fr]">
+          {/* Cover image with fade only */}
+          <motion.img
+            src={activeItem.coverUrl}
+            className="h-full w-full object-cover md:max-h-[520px]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          />
+
+          <div className="p-6 md:p-8">
+            <h3 className="text-3xl font-semibold">{activeItem.title}</h3>
+            <p className="mt-4 text-zinc-300">{activeItem.description}</p>
+
+            <button
+              onClick={() => {
+                setActiveItem(null);
+                navigate(`/volume/${getSeriesSlug()}/${activeItem.id}`);
+              }}
+              className="mt-6 cursor-pointer w-full rounded-lg bg-violet-500 px-4 py-3 font-semibold hover:bg-violet-600 transition"
             >
-              <div className="grid md:grid-cols-[300px_1fr]">
-                <motion.img
-                  layoutId={`${seriesLabel}-${activeItem.title}-cover`}
-                  src={activeItem.coverUrl}
-                  className="h-full w-full object-cover md:max-h-[520px]"
-                />
-
-                <div className="p-6 md:p-8">
-                  <h3 className="text-3xl font-semibold">
-                    {activeItem.title}
-                  </h3>
-
-                  <p className="mt-4 text-zinc-300">
-                    {activeItem.description}
-                  </p>
-
-                  {/* 🔥 READ BUTTON */}
-                  <button
-                    onClick={() => {
-                      setActiveItem(null);
-                      navigate(
-                        `/volume/${getSeriesSlug()}/${activeItem.id}`
-                      );
-                    }}
-                    className="mt-6 w-full rounded-lg bg-violet-500 px-4 py-3 font-semibold hover:bg-violet-600 transition"
-                  >
-                    Read Volume
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              Read Volume
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </>
+  )}
+</AnimatePresence>
     </section>
   );
 };
