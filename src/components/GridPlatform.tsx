@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import LinesEllipsis from 'react-lines-ellipsis'
 import type { GridItem } from '../data/mangaData'
 
 type GridPlatformProps = {
@@ -121,6 +122,7 @@ const GridPlatform = ({
             whileHover={{
               y: -10,
               transition: { duration: 0.08, ease: 'easeOut' },
+              cursor: 'pointer',
             }}
             onClick={() =>
               setActiveItem({
@@ -142,10 +144,22 @@ const GridPlatform = ({
               <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
                 {seriesLabel}
               </p>
-              <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 min-h-10 text-sm text-zinc-300">
-                {item.description}
-              </p>
+              <LinesEllipsis
+                text={item.title}
+                maxLine="2"
+                ellipsis="..."
+                trimRight
+                basedOn="letters"
+                className="mt-2 text-lg font-semibold "
+              />
+              <LinesEllipsis
+                text={item.description}
+                maxLine='2'
+                ellipsis='...'
+                trimRight
+                basedOn='letters'
+                className='text-sm text-zinc-300'
+              />
               <p className="mt-auto pt-3 text-xs text-violet-300">
                 Cover slot #{(currentPage - 1) * itemsPerPage + index + 1}
               </p>
@@ -163,7 +177,7 @@ const GridPlatform = ({
           type="button"
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="rounded-lg border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg border hover:cursor-pointer border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Prev
         </button>
@@ -173,11 +187,10 @@ const GridPlatform = ({
             key={page}
             type="button"
             onClick={() => setCurrentPage(page)}
-            className={`rounded-lg border px-3 py-2 text-sm ${
-              currentPage === page
-                ? 'border-violet-400 bg-violet-500 text-white'
-                : 'border-white/20 bg-zinc-900 text-zinc-200'
-            }`}
+            className={`rounded-lg border px-3 py-2 text-sm ${currentPage === page
+              ? 'border-violet-400 bg-violet-500 text-white'
+              : 'border-white/20 bg-zinc-900 text-zinc-200 hover:cursor-pointer'
+              }`}
           >
             {page}
           </button>
@@ -189,7 +202,7 @@ const GridPlatform = ({
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="rounded-lg border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg hover:cursor-pointer border border-white/20 bg-zinc-900 px-3 py-2 text-sm text-zinc-200 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Next
         </button>
