@@ -1,20 +1,33 @@
-import { useRouter } from "next/router";
-import { dragonBallSuperItems } from "../../data/mangaData";
+import { useParams } from "react-router-dom";
+import { dragonBallSuperItems, dragonBallZItems } from "../../data/mangaData";
 
-export default function DBSPage() {
-  const router = useRouter();
-  const { id } = router.query;
+export default function Reader() {
+  const { id, series } = useParams<{ id: string; series: string }>();
 
-  const volume = dragonBallSuperItems.find((v) => v.id === id);
+  const data =
+    series === "dbs" ? dragonBallSuperItems : dragonBallZItems;
 
-  if (!volume) return <p>Loading...</p>;
+  const volume = data.find((item) => item.id === id);
+
+  if (!volume) {
+    return <h1 className="text-white p-10">Volume not found</h1>;
+  }
 
   return (
-    <div>
-      <h1>Dragon Ball Super</h1>
-      <h2>{volume.title}</h2>
-      <img src={volume.coverUrl} width={200} />
-      <p>{volume.description}</p>
+    <div className="bg-black min-h-screen text-white p-6">
+      <h1 className="text-3xl font-bold mb-4">{volume.title}</h1>
+      <p className="mb-6 text-zinc-400">{volume.description}</p>
+
+      {/* Example pages */}
+      {Array.from({ length: 10 }, (_, i) => (
+        <img
+          key={i}
+          src={`/images/${series}/volume${id}/page${i + 1}.jpg`}
+          alt={`Page ${i + 1}`}
+          className="w-full mb-4"
+          loading="lazy"
+        />
+      ))}
     </div>
   );
 }
