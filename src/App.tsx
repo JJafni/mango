@@ -12,6 +12,18 @@ import { dragonBallSuperItems, dragonBallZItems } from "./data/mangaData";
 import type { HeaderSearchOption } from "./components/Header";
 import Reader from "./pages/dragon-ball-super/[id]";
 
+
+// ✅ helper to preload images
+function preloadImage(src: string) {
+  return new Promise<void>((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve();
+    img.onerror = reject;
+  });
+}
+
+
 const HomePage = ({
   activeSearchItem,
   setActiveSearchItem,
@@ -131,9 +143,43 @@ const HomePage = ({
   );
 };
 
+
 const App = () => {
+  const [isReady, setIsReady] = useState(false);
+
   const [activeSearchItem, setActiveSearchItem] =
     useState<HeaderSearchOption | null>(null);
+
+  useEffect(() => {
+    async function init() {
+      try {
+        const images = [landingBgImg, secondBgImg];
+
+        await Promise.all([
+          // API
+          fetch("/api/user").then(res => res.json()),
+          fetch("/api/config").then(res => res.json()),
+
+          // Images
+          ...images.map(preloadImage),
+        ]);
+      } catch (err) {
+        console.error("App init failed:", err);
+      } finally {
+        setIsReady(true);
+      }
+    }
+
+    init();
+  }, []);
+
+  if (!isReady) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-black text-white text-xl">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <Routes>
