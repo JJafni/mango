@@ -26,7 +26,7 @@ const GridPlatform = ({
 
   const gridRef = useRef<HTMLDivElement | null>(null);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
   const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
 
   const normalizedItems = useMemo(() => {
