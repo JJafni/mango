@@ -1,7 +1,7 @@
 const LandingHero = () => {
   return (
     <section className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-6 py-16">
-      <div className="text-left">
+      <div className="text-center sm:text-left">
         <p className="mb-4 inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm">
           Welcome to
         </p>

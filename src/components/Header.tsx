@@ -31,15 +31,15 @@ const Header = ({ options, onSelectOption }: HeaderProps) => {
   }, [query, options])
 
   return (
-    <header className="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur fixed top-0 left-0 right-0 z-50">
+    <header className="border-none sm:border-b border-zinc-800 bg-transparent backdrop-blur-none sm:backdrop-blur sm:bg-zinc-900/80 fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h1 className="hidden sm:block text-2xl font-bold tracking-tight sm:text-3xl">
           Dragon Radar
         </h1>
 
         <div className="relative w-full sm:w-96">
           <GooeyInput
-            placeholder="Search manga..."
+            placeholder="Scan manga..."
             value={query}
             onValueChange={(value) => {
               setQuery(value)
